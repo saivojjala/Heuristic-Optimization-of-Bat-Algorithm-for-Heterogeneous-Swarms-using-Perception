@@ -1,0 +1,44 @@
+<launch>
+<group ns="/bat_swarm">
+    <group ns="bat_1">
+        <param name="robot_number" value="1"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_2">
+        <param name="robot_number" value="2"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_3">
+        <param name="robot_number" value="3"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_4">
+        <param name="robot_number" value="4"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_5">
+        <param name="robot_number" value="5"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_6">
+        <param name="robot_number" value="6"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <!-- <group ns="bat_7">
+        <param name="robot_number" value="7"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_8">
+        <param name="robot_number" value="8"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_9">
+        <param name="robot_number" value="9"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group>
+    <group ns="bat_10">
+        <param name="robot_number" value="10"/>
+        <node pkg="bat_algo" type="move_bat.py" name="move_bat" output="screen" />
+    </group> -->
+</group>
+</launch>

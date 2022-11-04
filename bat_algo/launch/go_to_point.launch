@@ -1,0 +1,34 @@
+<launch>
+    <group ns="/bat_swarm">
+        <group ns="bat_1">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_2">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_3">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_4">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_5">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_6">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <!-- <group ns="bat_7">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_8">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_9">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group>
+        <group ns="bat_10">
+            <node pkg="bat_algo" type="go_to_point_combined.py" name="go_to_point" output="screen" />
+        </group> -->
+    </group>
+</launch>

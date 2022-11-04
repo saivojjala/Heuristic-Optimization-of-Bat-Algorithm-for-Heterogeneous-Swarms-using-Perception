@@ -1,0 +1,19 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# laser_controller:
+#   type: effort_controllers/JointPositionController
+#   joint: laser_joint
+#   pid: {p: 0.001, i: 0.001, d: 0.01}
+  # constraints:
+  #   goal_time: 0.6
+  #   stopped_velocity_tolerance: 0.05
+  #   laser: {trajectory: 0.1, goal: 0.1}
+  # stop_trajectory_duration: 0.5
+  # state_publish_rate:  25
+  # action_monitor_rate: 10
+
+# /gazebo_ros_control:
+#     laser_joint: {p: 1.0, i: 0.0, d: 0.0}

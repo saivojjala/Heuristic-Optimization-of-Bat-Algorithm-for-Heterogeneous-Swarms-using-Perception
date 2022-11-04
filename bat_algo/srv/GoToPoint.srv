@@ -1,0 +1,7 @@
+bool data
+float64 x
+float64 y
+---
+float64 d
+float64 x
+float64 y
