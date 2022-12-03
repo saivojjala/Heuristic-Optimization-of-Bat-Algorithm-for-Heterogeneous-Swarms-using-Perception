@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="$(arg robot_name)">
-<xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
-
     <link name="base_link">
         <visual>
             <geometry>
@@ -136,10 +134,6 @@
         </inertial>
     </link>
     
-    <xacro:sensor_d435 name="camera" topics_ns="camera" parent="base_link" publish_pointcloud="true">
-        <origin xyz="0 0 0.05" rpy="0 0 0" />
-    </xacro:sensor_d435>  
-
     <joint name="front_wheel_joint" type="fixed">  <!-- continuous -->
         <axis xyz="0.0 0.0 1"/>
         <parent link="base_link"/>
@@ -305,5 +299,4 @@
             <!-- front_caster_of_wheel_joint, front_wheel_joint -->
         </plugin>
     </gazebo>
-
 </robot>
