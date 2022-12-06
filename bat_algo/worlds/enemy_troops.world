@@ -1,13 +1,6 @@
 <?xml version="1.0" ?>
-<sdf version="1.7">
-  <world name="default">
-    <scene>
-      <sky>
-        <clouds>
-          <speed>12</speed>
-        </clouds>
-      </sky>
-    </scene>
+<sdf version='1.7'>
+  <world name='default'>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -1155,13 +1148,5 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <!-- <plugin name="map" filename="libStaticMapPlugin.so">
-      <center>37.386491 -122.065255</center>
-      <world_size>100</world_size>
-      <map_type>satellite</map_type>
-      <api_key>enter_your_google_api_key_here</api_key>
-      <use_cache>false</use_cache>
-    </plugin> -->
-    
   </world>
 </sdf>
