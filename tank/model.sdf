@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='Tank'>
+    <static>true</static>
+    <link name="tank">
+
+        <visual name="visual">
+        <geometry>
+                <mesh>
+                    <uri>model://tank/meshes/tank.dae</uri>
+                </mesh>
+            </geometry>
+        </visual>
+         <collision name="collision">
+                <geometry>
+                <mesh>
+                    <uri>model://tank/meshes/tank.dae</uri>
+                </mesh>
+            </geometry>
+        </collision>
+
+    </link>
+  </model>
+</sdf>
+~                                        
