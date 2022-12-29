@@ -1,0 +1,34 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find bat_algo)/worlds/red_sphere_in_front.world"/>
+    <!-- more default parameters can be changed here -->
+    <arg name="debug" value="false" />
+    <arg name="gui" value="true" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="false"/>
+    <arg name="headless" value="false"/>
+    <arg name="verbose" value="true"/>
+  </include>
+
+  <!-- <include file="$(find bat_algo)/launch/controller.launch" /> -->
+
+<!--Robot Description from URDF-->
+<param name="robot_description" textfile="$(find bat_algo)/urdf/thermal_laser_bot.urdf" />
+<arg name="robot_name" default="bat_1"/>
+
+<!--Nodes-->
+<!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+<node name="robot_state_publisher"  pkg="robot_state_publisher" type="robot_state_publisher" />
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model $(arg robot_name) -x 0 -y 0" output="screen"/>
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find bat_algo)/urdf.rviz" required="true"/>
+<node pkg="bat_algo" type="reading_laser.py" name="reading_laser" output="screen"/>
+<!-- <node pkg="bat_algo" type="camera_red_filter.py" name="load_image" output= "screen"/> -->
+<node pkg="bat_algo" type="camera_red_filter_2.py" name="image_converter" output= "screen"/>
+
+<!--Nodes-->
+<!-- <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model mybot -verbose" output="screen"/>
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot)/rviz/mybot.rviz" required="true"/> -->
+
+
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+    <!-- values passed by command line input -->
+    <arg name="model" default="custom_bot.urdf"/>
+    <!-- set these parameters on Parameter Server -->
+    <param name="robot_description" textfile="$(find bat_algo)/urdf/$(arg model)" />
+    <!-- Start 3 nodes: joint_state_publisher, robot_state_publisher and rviz -->
+<!-- <group ns="/bat_swarm"> -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    <node name="robot_state_publisher"  pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find bat_algo)/urdf.rviz"  required="false" />
+<!-- </group> -->
+</launch>

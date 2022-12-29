@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="$(arg robot_name)">
+<xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+<xacro:property name="cam_topic" value="$(arg robot_name)" />
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <!-- <box size="0.15 0.09 0.05"/> -->
+                <cylinder radius="0.08" length="0.025"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1 0.0 0.0 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <!-- <box size="0.15 0.09 0.05"/> -->
+                <!-- Height, width, depth -->
+                <cylinder radius="0.08" length="0.025"/>
+            </geometry>
+        </collision>
+        
+        <inertial>
+            <mass value="0.8"/> 
+            <!-- 0.4 -->
+            <!-- <inertia ixx="0.0016666" ixy="0" ixz="0" iyy="0.00204" iyz="0.0" izz="0.000706666"/> -->
+            <inertia ixx="0.013216" ixy="0" ixz="0" iyy="0.013216" iyz="0.0" izz="0.00256"/> 
+        </inertial>
+    </link>
+    
+    <link name="front_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.016"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.0 0.1 0.0 1"/>
+            </material>
+        </visual>
+        
+        <collision>
+            <geometry>
+                <sphere radius="0.016"/>
+            </geometry>
+        </collision>
+        
+        <inertial>
+            <mass value="0.035"/>
+            <inertia ixx="0.000003584" ixy="0" ixz="0" iyy="0.000003584" iyz="0.0" izz="0.000003584"/>
+        </inertial>
+    </link>
+
+    <link name="back_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.016"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.0 0.1 0.0 1"/>
+            </material>
+        </visual>
+        
+        <collision>
+            <geometry>
+                <sphere radius="0.016"/>
+            </geometry>
+        </collision>
+        
+        <inertial>
+            <mass value="0.035"/>
+            <inertia ixx="0.000003584" ixy="0" ixz="0" iyy="0.000003584" iyz="0.0" izz="0.000003584"/>
+        </inertial>
+    </link>
+
+    <link name="right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.016" length="0.007"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1"/>
+            </material>
+        </visual>
+        
+        <collision>
+            <geometry>
+                <cylinder radius="0.016" length="0.007"/>
+            </geometry>
+        </collision>
+        
+        <inertial>
+            <mass value="0.0032"/>
+            <inertia ixx="0.00000021787" ixy="0" ixz="0" iyy="0.00000021787" iyz="0.0" izz="0.0000004096"/>
+        </inertial>
+    </link>
+    
+    <link name="left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.016" length="0.007"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.016" length="0.007"/>
+            </geometry>
+        </collision>
+    
+        <inertial>
+            <mass value="0.0032"/>
+            <inertia ixx="0.00000021787" ixy="0" ixz="0" iyy="0.00000021787" iyz="0.0" izz="0.0000004096"/>
+        </inertial>
+    </link>
+
+    <link name="laser_scanner">
+        <visual>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+        
+        <collision>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <!-- <mass value="0.150"/>
+            <inertia ixx="2.5e-6" ixy="0" ixz="0.0" iyy="2.5e-6" iyz="0.0" izz="2.5e-6"/> -->
+        </inertial>
+    </link>
+    
+    <xacro:sensor_d435 name="camera" topics_ns="${cam_topic}/camera" parent="base_link" publish_pointcloud="true">
+        <origin xyz="0 0 0.05" rpy="0 0 0" />
+    </xacro:sensor_d435>  
+
+    <joint name="front_wheel_joint" type="fixed">  <!-- continuous -->
+        <axis xyz="0.0 0.0 1"/>
+        <parent link="base_link"/>
+        <child link="front_wheel"/>
+        <origin xyz="0.05 0.0 -0.01" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="back_wheel_joint" type="fixed">  <!-- continuous -->
+        <axis xyz="0.0 0.0 1"/>
+        <parent link="base_link"/>
+        <child link="back_wheel"/>
+        <origin xyz="-0.05 0.0 -0.01" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <axis xyz="0.0 0.0 1"/>
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+        <origin xyz="0 -0.045 -0.01" rpy="-1.5708 0.0 0.0"/>
+    </joint>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <axis xyz="0.0 0.0 1"/>
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <origin xyz="0  0.045 -0.01" rpy="-1.5708 0.0 0.0"/>
+    </joint>
+
+    <joint name="laser_joint" type="fixed">
+        <axis xyz="0.0 0.0 1.0"/>
+        <origin xyz="-0.06 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="laser_scanner"/>
+    </joint>
+
+    <gazebo>
+        <plugin name="differential_drive_controller"
+            filename="libgazebo_ros_diff_drive.so">
+            <legacyMode>false</legacyMode>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10</updateRate>
+            <leftJoint>left_wheel_joint</leftJoint>
+            <rightJoint>right_wheel_joint</rightJoint>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <wheelSeparation>0.097</wheelSeparation>
+            <wheelDiameter>0.032</wheelDiameter>
+            <wheelTorque>0.2</wheelTorque>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <publishWheelJointState>true</publishWheelJointState>
+            <publishOdomTF>true</publishOdomTF>
+            <!-- <publishWheelTF>true</publishWheelTF> -->
+        </plugin>
+    </gazebo>
+    <gazebo reference="laser_scanner">
+        <sensor type="ray" name="head_hokuyo_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>5</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.31</min_angle>
+                        <max_angle>0.31</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.145</min>
+                    <max>1.5</max>
+                    <resolution>0.01</resolution>
+                    <!-- <resolution>0.003</resolution> -->
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+                <topicName>LaserScan</topicName>
+                <frameName>laser_scanner</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="base_link">
+        <material value="Gazebo/$(arg color)"/>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+    </gazebo>
+
+    <gazebo reference="front_wheel">
+        <material>Gazebo/Black</material>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir>1 1 0</fdir>
+        <selfCollide>false</selfCollide>
+    </gazebo>
+
+    <gazebo reference="back_wheel">
+        <material>Gazebo/Black</material>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir>1 1 0</fdir>
+        <selfCollide>false</selfCollide>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Black</material>
+        <!-- <mu1>0.78</mu1>
+        <mu2>0.78</mu2> -->
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir>1 1 0</fdir>
+        <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Black</material>
+        <!-- <mu1>0.78</mu1>
+        <mu2>0.78</mu2> -->
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir>1 1 0</fdir>
+        <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="laser_scanner">
+        <material value="Gazebo/Black"/>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+        <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <!-- <robotNamespace>/</robotNamespace> -->
+            <controlPeriod>0.001</controlPeriod>
+            <legacyModeNS>false</legacyModeNS>
+        </plugin>
+    </gazebo>
+    <gazebo>
+        <plugin name="joint_state_publisher"
+            filename="libgazebo_ros_joint_state_publisher.so">
+            <jointName>left_wheel_joint, right_wheel_joint</jointName> 
+            <!-- , laser_joint</jointName>  -->
+            <!-- front_caster_of_wheel_joint, front_wheel_joint -->
+        </plugin>
+    </gazebo>
+</robot>
