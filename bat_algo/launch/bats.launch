@@ -35,8 +35,8 @@
         <group ns="bat_2">
             <param name="initial_x" value="-5" />
             <param name="initial_y" value="-2" />
-            <param name="des_pos_x" value="$(eval arg ('des_x')-2)" />
-            <param name="des_pos_y" value="$(eval arg ('des_y')+2)" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+1.5)" />
             <!-- <param name="des_pos_x" value="-7" />
             <param name="des_pos_y" value="-1" /> -->
             <param name="A" value="0.85"/>
@@ -57,8 +57,8 @@
         <group ns="bat_4">
             <param name="initial_x" value="-5.0" />
             <param name="initial_y" value="-4.0" />
-            <param name="des_pos_x" value="$(eval arg ('des_x')-2)" />
-            <param name="des_pos_y" value="$(eval arg ('des_y')-2)" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')-1.5)" />
             <!-- <param name="des_pos_x" value="-7" />
             <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.89"/>

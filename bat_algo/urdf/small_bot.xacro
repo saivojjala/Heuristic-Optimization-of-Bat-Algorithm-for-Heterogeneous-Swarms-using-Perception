@@ -203,15 +203,15 @@
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>5</samples>
+                        <samples>15</samples>
                         <resolution>1</resolution>
-                        <min_angle>-0.31</min_angle>
-                        <max_angle>0.31</max_angle>
+                        <min_angle>-0.87</min_angle>
+                        <max_angle>0.87</max_angle>
                     </horizontal>
                 </scan>
                 <range>
                     <min>0.145</min>
-                    <max>1.5</max>
+                    <max>1.0</max>
                     <resolution>0.01</resolution>
                     <!-- <resolution>0.003</resolution> -->
                 </range>

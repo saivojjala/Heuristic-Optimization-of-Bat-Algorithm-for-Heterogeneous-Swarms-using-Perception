@@ -38,13 +38,13 @@
     </group>
     <group ns="bat_4">
       <arg name="robot_name" default="bat_4"/>
-      <arg name="color" default="Yellow"/>
+      <arg name="color" default="Red"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -4 -z 0.041 " />
     </group>
     <group ns="bat_5">
       <arg name="robot_name" default="bat_5"/>
-      <arg name="color" default="Grey"/>
+      <arg name="color" default="Green"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -5 -z 0.041 " />
     </group>
@@ -53,62 +53,62 @@
       <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -6 -z 0.041 " />
-    </group> -->
-    <!-- <group ns="bat_7">
+    </group>
+    <group ns="bat_7">
       <arg name="robot_name" default="bat_7"/>
-      <arg name="color" default="Indigo"/>
+      <arg name="color" default="Red"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -7 -z 0.041 " />
     </group>
     <group ns="bat_8">
       <arg name="robot_name" default="bat_8"/>
-      <arg name="color" default="Orange"/>
+      <arg name="color" default="Green"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -8 -z 0.041 " />
     </group>
     <group ns="bat_9">
       <arg name="robot_name" default="bat_9"/>
-      <arg name="color" default="Purple"/>
+      <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -9 -z 0.041 " />
     </group>
     <group ns="bat_10">
       <arg name="robot_name" default="bat_10"/>
-      <arg name="color" default="White"/>
+      <arg name="color" default="Red"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -10 -z 0.041 " />
     </group>
     <group ns="bat_11">
       <arg name="robot_name" default="bat_11"/>
-      <arg name="color" default="Red"/>
+      <arg name="color" default="Green"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y 1 -z 0.041 " />
     </group>
     <group ns="bat_12">
       <arg name="robot_name" default="bat_12"/>
-      <arg name="color" default="Green"/>
+      <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y 2 -z 0.041 " />
     </group>
     <group ns="bat_13">
       <arg name="robot_name" default="bat_13"/>
-      <arg name="color" default="Blue"/>
+      <arg name="color" default="Red"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y 3 -z 0.041 " />
     </group>
     <group ns="bat_14">
       <arg name="robot_name" default="bat_14"/>
-      <arg name="color" default="Yellow"/>
+      <arg name="color" default="Green"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y 4 -z 0.041 " />
     </group>
     <group ns="bat_15">
       <arg name="robot_name" default="bat_15"/>
-      <arg name="color" default="Grey"/>
+      <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y 5 -z 0.041 " />
-    </group>
-    <group ns="bat_16">
+    </group> -->
+    <!--<group ns="bat_16">
       <arg name="robot_name" default="bat_16"/>
       <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
