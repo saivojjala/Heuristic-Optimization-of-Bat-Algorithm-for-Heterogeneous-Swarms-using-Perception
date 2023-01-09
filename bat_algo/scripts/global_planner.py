@@ -20,6 +20,8 @@ position_ = Point()
 goal_position_ = Point()
 goal_position_.x = rospy.get_param('des_pos_x')
 goal_position_.y = rospy.get_param('des_pos_y')
+# goal_position_.x = -1
+# goal_position_.y = -5
 name_space_ = rospy.get_namespace()
 result_ = GoToPointResult()
 yaw_ = 0
@@ -34,12 +36,12 @@ yaw_precision_ = 4
 dist_precision_ = 0.25
 
 def rotation():      
-    while regions['front']<=0.7:   
+    while regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7:   
         rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
         obstacle_avoidance()
 
     if(abs(error_yaw_)>yaw_precision_):
-        # vel_.linear.x = error_distance_*0.12
+        vel_.linear.x = error_distance_*0.12
         vel_.angular.z = error_yaw_*0.01
         pub_.publish(vel_)
     else:
@@ -49,24 +51,28 @@ def rotation():
         go_straight()
 
 def go_straight():
-    vel_.linear.x = error_distance_*0.17
+    vel_.linear.x = error_distance_*0.12
     vel_.angular.z=0
     pub_.publish(vel_)
 
 def obstacle_avoidance():  
     global regions
-
-    if regions['right']<=0.3 and regions['left']>0.3:
-        vel_.linear.x = 0
-        vel_.linear.z = 1.0
+    print(regions)
+    if regions['front']<=0.7 and regions['right']<=0.7 and regions['left']>0.7:
+        vel_.linear.x = regions['right']*0.5
+        vel_.angular.z = 1.0
         pub_.publish(vel_)
-    elif regions['right']>0.3 and regions['left']<=0.3:
-        vel_.linear.x = 0
-        vel_.linear.z = -1.0
+    elif regions['front']<=0.7 and regions['right']>0.7 and regions['left']<=0.7:
+        vel_.linear.x = regions['left']*0.3
+        vel_.angular.z = -1.0
         pub_.publish(vel_)
-    elif regions['right']<=0.3 and regions['left']<=0.3:
-        vel_.linear.x = -0.4
-        vel_.linear.z = 0
+    elif regions['front']<=0.7 and regions['right']>0.7 and regions['left']>0.7:
+        vel_.linear.x = regions['left']*0.3
+        vel_.angular.z = -1.0
+        pub_.publish(vel_)
+    elif regions['front']<=0.7 and regions['right']<=0.7 and regions['left']<=0.7:
+        vel_.linear.x = -0.2
+        vel_.angular.z = -1.0
         pub_.publish(vel_)
 
 def decision(goal):

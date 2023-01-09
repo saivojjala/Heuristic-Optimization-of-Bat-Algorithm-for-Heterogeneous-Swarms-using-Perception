@@ -21,19 +21,19 @@
         <node pkg="bat_algo" type="best_bat.py" name="best_bat" output="screen" />
         <node pkg="bat_algo" type="gen_checker.py" name="gen_checker" output = "screen" />
         <group ns="bat_1">
-            <param name="initial_x" value="-5" />
+            <param name="initial_x" value="-8" />
             <param name="initial_y" value="-1" />
-            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
-            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" />
-            <!-- <param name="des_pos_x" value="-8" />
-            <param name="des_pos_y" value="-0" /> -->
+            <!-- <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" /> -->
+            <param name="des_pos_x" value="-3" />
+            <param name="des_pos_y" value="-5" />
             <param name="A" value="0.69"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_1"/>
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
         </group>
         <group ns="bat_2">
-            <param name="initial_x" value="-5" />
+            <param name="initial_x" value="-8" />
             <param name="initial_y" value="-2" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')+1.5)" />
@@ -45,7 +45,7 @@
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
         </group>
         <group ns="bat_3">
-            <param name="initial_x" value="-5.0" />
+            <param name="initial_x" value="-8.0" />
             <param name="initial_y" value="-3.0" />
             <param name="des_pos_x" value="$(arg des_x)" />
             <param name="des_pos_y" value="$(arg des_y)" />
@@ -55,7 +55,7 @@
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
         </group>
         <group ns="bat_4">
-            <param name="initial_x" value="-5.0" />
+            <param name="initial_x" value="-8.0" />
             <param name="initial_y" value="-4.0" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')-1.5)" />
@@ -67,7 +67,7 @@
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
         </group>
         <group ns="bat_5">
-            <param name="initial_x" value="-5.0" />
+            <param name="initial_x" value="-8.0" />
             <param name="initial_y" value="-5.0" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')-3)" />
