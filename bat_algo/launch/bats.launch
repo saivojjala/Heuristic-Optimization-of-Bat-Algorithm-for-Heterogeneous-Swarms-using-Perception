@@ -23,10 +23,10 @@
         <group ns="bat_1">
             <param name="initial_x" value="-8" />
             <param name="initial_y" value="-1" />
-            <!-- <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
-            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" /> -->
-            <param name="des_pos_x" value="-3" />
-            <param name="des_pos_y" value="-5" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" />
+            <!-- <param name="des_pos_x" value="-3" />
+            <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.69"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_1"/>
