@@ -3,9 +3,9 @@
 <launch>
     <!-- <arg name="initial_x" default="0" />
     <arg name="initial_y" default="0" /> -->
-    <arg name="des_x" value="-5" />
-    <arg name="des_y" value="-3" /> 
-    <group ns="/bat_swarm">
+    <arg name="des_x" value="0" />
+    <arg name="des_y" value="0" /> 
+    <group ns="/bat_swarm_red">
         <!-- <param name="des_pos_x" value="4.0" />
         <param name="des_pos_y" value="-8.0" /> -->
         <param name="Qmax" value="0.20"/>
@@ -22,7 +22,7 @@
         <node pkg="bat_algo" type="gen_checker.py" name="gen_checker" output = "screen" />
         <group ns="bat_1">
             <param name="initial_x" value="-8" />
-            <param name="initial_y" value="-1" />
+            <param name="initial_y" value="-7" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')+3)" />
             <!-- <param name="des_pos_x" value="-3" />
@@ -34,7 +34,7 @@
         </group>
         <group ns="bat_2">
             <param name="initial_x" value="-8" />
-            <param name="initial_y" value="-2" />
+            <param name="initial_y" value="-4" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')+1.5)" />
             <!-- <param name="des_pos_x" value="-7" />
@@ -46,7 +46,7 @@
         </group>
         <group ns="bat_3">
             <param name="initial_x" value="-8.0" />
-            <param name="initial_y" value="-3.0" />
+            <param name="initial_y" value="-1.0" />
             <param name="des_pos_x" value="$(arg des_x)" />
             <param name="des_pos_y" value="$(arg des_y)" />
             <param name="A" value="0.78"/>
@@ -56,7 +56,7 @@
         </group>
         <group ns="bat_4">
             <param name="initial_x" value="-8.0" />
-            <param name="initial_y" value="-4.0" />
+            <param name="initial_y" value="2.0" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')-1.5)" />
             <!-- <param name="des_pos_x" value="-7" />
@@ -68,7 +68,7 @@
         </group>
         <group ns="bat_5">
             <param name="initial_x" value="-8.0" />
-            <param name="initial_y" value="-5.0" />
+            <param name="initial_y" value="5.0" />
             <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
             <param name="des_pos_y" value="$(eval arg ('des_y')-3)" />
             <!-- <param name="des_pos_x" value="-8" />
@@ -78,6 +78,155 @@
             <param name="robot_name" value="bat_5"/>
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
         </group>
+    </group>
+    <group ns="/bat_swarm_green">
+        <!-- <param name="des_pos_x" value="4.0" />
+        <param name="des_pos_y" value="-8.0" /> -->
+        <param name="Qmax" value="0.20"/>
+        <param name="Qmin" value="0.06"/>
+        <param name="NP" value="6"/>
+        <param name="N_Gen" value="10000"/>
+        <param name="D" value="2"/>
+        <param name="Lower" value="-10"/>
+        <param name="Upper" value="10"/>
+        <param name="alpha" value="0.1"/>
+        <!-- <param name="r_init" value="0.2"/> -->
+        <param name="gamma" value="0.05"/>
+        <node pkg="bat_algo" type="best_bat.py" name="best_bat" output="screen" />
+        <node pkg="bat_algo" type="gen_checker.py" name="gen_checker" output = "screen" />
+        <group ns="bat_6">
+            <param name="initial_x" value="-8" />
+            <param name="initial_y" value="-6" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" />
+            <!-- <param name="des_pos_x" value="-3" />
+            <param name="des_pos_y" value="-5" /> -->
+            <param name="A" value="0.69"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_1"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
+        </group>
+        <group ns="bat_7">
+            <param name="initial_x" value="-8" />
+            <param name="initial_y" value="-3" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+1.5)" />
+            <!-- <param name="des_pos_x" value="-7" />
+            <param name="des_pos_y" value="-1" /> -->
+            <param name="A" value="0.85"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_2"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
+        </group>
+        <group ns="bat_8">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="3.0" />
+            <param name="des_pos_x" value="$(arg des_x)" />
+            <param name="des_pos_y" value="$(arg des_y)" />
+            <param name="A" value="0.78"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_3"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
+        </group>
+        <group ns="bat_9">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="0.0" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')-1.5)" />
+            <!-- <param name="des_pos_x" value="-7" />
+            <param name="des_pos_y" value="-5" /> -->
+            <param name="A" value="0.89"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_4"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
+        </group>
+        <group ns="bat_10">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="6.0" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')-3)" />
+            <!-- <param name="des_pos_x" value="-8" />
+            <param name="des_pos_y" value="-6" /> -->
+            <param name="A" value="0.78"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_5"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
+        </group>
+    </group>
+    <group ns="/bat_swarm_blue">
+        <!-- <param name="des_pos_x" value="4.0" />
+        <param name="des_pos_y" value="-8.0" /> -->
+        <param name="Qmax" value="0.20"/>
+        <param name="Qmin" value="0.06"/>
+        <param name="NP" value="6"/>
+        <param name="N_Gen" value="10000"/>
+        <param name="D" value="2"/>
+        <param name="Lower" value="-10"/>
+        <param name="Upper" value="10"/>
+        <param name="alpha" value="0.1"/>
+        <!-- <param name="r_init" value="0.2"/> -->
+        <param name="gamma" value="0.05"/>
+        <node pkg="bat_algo" type="best_bat.py" name="best_bat" output="screen" />
+        <node pkg="bat_algo" type="gen_checker.py" name="gen_checker" output = "screen" />
+        <group ns="bat_11">
+            <param name="initial_x" value="-8" />
+            <param name="initial_y" value="-5" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+3)" />
+            <!-- <param name="des_pos_x" value="-3" />
+            <param name="des_pos_y" value="-5" /> -->
+            <param name="A" value="0.69"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_1"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
+        </group>
+        <group ns="bat_12">
+            <param name="initial_x" value="-8" />
+            <param name="initial_y" value="-2" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')+1.5)" />
+            <!-- <param name="des_pos_x" value="-7" />
+            <param name="des_pos_y" value="-1" /> -->
+            <param name="A" value="0.85"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_2"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
+        </group>
+        <group ns="bat_13">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="1.0" />
+            <param name="des_pos_x" value="$(arg des_x)" />
+            <param name="des_pos_y" value="$(arg des_y)" />
+            <param name="A" value="0.78"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_3"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
+        </group>
+        <group ns="bat_14">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="4.0" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-1.5)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')-1.5)" />
+            <!-- <param name="des_pos_x" value="-7" />
+            <param name="des_pos_y" value="-5" /> -->
+            <param name="A" value="0.89"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_4"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
+        </group>
+        <group ns="bat_15">
+            <param name="initial_x" value="-8.0" />
+            <param name="initial_y" value="7.0" />
+            <param name="des_pos_x" value="$(eval arg ('des_x')-3)" />
+            <param name="des_pos_y" value="$(eval arg ('des_y')-3)" />
+            <!-- <param name="des_pos_x" value="-8" />
+            <param name="des_pos_y" value="-6" /> -->
+            <param name="A" value="0.78"/>
+            <param name="r" value="0.2"/>
+            <param name="robot_name" value="bat_5"/>
+            <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
+        </group>
+    </group>
         <!-- <group ns="bat_6">
             <param name="initial_x" value="-1.0" />
             <param name="initial_y" value="-9.0" />
@@ -120,7 +269,7 @@
             <param name="robot_name" value="bat_10"/>
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_10" output="screen" />
         </group> -->
-    </group>
+    
     <!-- <include file="$(find bat_algo)/launch/go_to_point.launch" />
     <include file="$(find bat_algo)/launch/move_bat.launch" /> -->
 </launch>

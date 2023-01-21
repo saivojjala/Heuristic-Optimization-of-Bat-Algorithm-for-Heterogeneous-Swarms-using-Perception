@@ -17,7 +17,104 @@
 
   <!-- <include file="$(find bat_algo)/launch/controller.launch" /> -->
   <!-- Bat Swarm-->
-  <group ns="/bat_swarm">
+  <group ns="/bat_swarm_red">
+    <group ns="bat_1">
+      <arg name="robot_name" default="bat_1"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -7 -z 0.041 " />
+    </group>
+    <group ns="bat_2">
+      <arg name="robot_name" default="bat_2"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -4 -z 0.041 " />
+    </group>
+    <group ns="bat_3">
+      <arg name="robot_name" default="bat_3"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -1 -z 0.041 " />
+    </group>
+    <group ns="bat_4">
+      <arg name="robot_name" default="bat_4"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 2 -z 0.041 " />
+    </group>
+    <group ns="bat_5">
+      <arg name="robot_name" default="bat_5"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 5 -z 0.041 " />
+    </group>
+
+  </group>
+  <group ns="/bat_swarm_green">
+    <group ns="bat_6">
+      <arg name="robot_name" default="bat_6"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -6 -z 0.041 " />
+    </group>
+    <group ns="bat_7">
+      <arg name="robot_name" default="bat_7"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -3 -z 0.041 " />
+    </group>
+    <group ns="bat_8">
+      <arg name="robot_name" default="bat_8"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 3 -z 0.041 " />
+    </group>
+    <group ns="bat_9">
+      <arg name="robot_name" default="bat_9"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 0 -z 0.041 " />
+    </group>
+    <group ns="bat_10">
+      <arg name="robot_name" default="bat_10"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 6 -z 0.041 " />
+    </group>
+  </group>
+  <group ns="/bat_swarm_blue">
+    <group ns="bat_11">
+      <arg name="robot_name" default="bat_11"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -5 -z 0.041 " />
+    </group>
+    <group ns="bat_12">
+      <arg name="robot_name" default="bat_12"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -2 -z 0.041 " />
+    </group>
+    <group ns="bat_13">
+      <arg name="robot_name" default="bat_13"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 1 -z 0.041 " />
+    </group>
+    <group ns="bat_14">
+      <arg name="robot_name" default="bat_14"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 4 -z 0.041 " />
+    </group>
+    <group ns="bat_15">
+      <arg name="robot_name" default="bat_15"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y 7 -z 0.041 " />
+    </group>
+  </group>
+  <!-- <group ns="/bat_swarm4">
     <group ns="bat_1">
       <arg name="robot_name" default="bat_1"/>
       <arg name="color" default="Red"/>
@@ -48,12 +145,39 @@
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -5 -z 0.041 " />
     </group>
-    <group ns="bat_6">
-      <arg name="robot_name" default="bat_6"/>
-      <arg name="color" default="Orange"/>
+  </group>
+  <group ns="/bat_swarm5">
+    <group ns="bat_1">
+      <arg name="robot_name" default="bat_1"/>
+      <arg name="color" default="Blue"/>
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
-      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -5 -y -6 -z 0.041 " />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -1 -z 0.041 " />
     </group>
+    <group ns="bat_2">
+      <arg name="robot_name" default="bat_2"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -2 -z 0.041 " />
+    </group>
+    <group ns="bat_3">
+      <arg name="robot_name" default="bat_3"/>
+      <arg name="color" default="Green"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -3 -z 0.041 " />
+    </group>
+    <group ns="bat_4">
+      <arg name="robot_name" default="bat_4"/>
+      <arg name="color" default="Blue"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -4 -z 0.041 " />
+    </group>
+    <group ns="bat_5">
+      <arg name="robot_name" default="bat_5"/>
+      <arg name="color" default="Red"/>
+      <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -8 -y -5 -z 0.041 " />
+    </group>
+  </group> -->
     <!-- <group ns="bat_7">
       <arg name="robot_name" default="bat_7"/>
       <arg name="color" default="Red"/>
@@ -258,5 +382,5 @@
       <param name="robot_description" command="$(find xacro)/xacro $(find bat_algo)/urdf/small_bot.xacro color:='$(arg color)' robot_name:='$(arg robot_name)'" />
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name) -x -7 -y 10 -z 0.041 " />
     </group> -->
-  </group>
+  
 </launch>
