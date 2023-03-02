@@ -15,6 +15,7 @@ import time
 from scipy.spatial import ConvexHull, convex_hull_plot_2d
 import numpy as np
 from scipy.spatial import KDTree 
+from rosgraph_msgs.msg import Clock
 
 class Coordinate:
     def __init__(self,x,y) -> None:
@@ -48,7 +49,7 @@ class GetGlobalPoints:
     
 class PublishPoints:
     def __init__(self) -> None:
-        self.points = []
+        self.points = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]
         self.curr_pose = [Odometry(),Odometry(),Odometry(),Odometry()]
         self.mirror_points = [(-6.731236739721421,-0.06402044090225052),(-5.104874290975364,-1.4952762161233175),(-4.700912500625259,-4.484871600869022),(-6.010407068227448,-6.081954633384385)]
         self.hullobj = GetGlobalPoints()
@@ -60,7 +61,7 @@ class PublishPoints:
         rospy.Subscriber("/tank2/pose",Odometry,self.odom_callback2,queue_size = 1)
         rospy.Subscriber("/tank3/pose",Odometry,self.odom_callback3,queue_size = 1)
         rospy.Subscriber("/tank4/pose",Odometry,self.odom_callback4,queue_size = 1)
-        rospy.Subscriber("/odom",Odometry,self.major_callback,queue_size=1)
+        rospy.Subscriber("/clock",Clock,self.major_callback1,queue_size=1)
     
     def odom_callback1(self,msg):
         x = msg.pose.pose.position.x
@@ -109,8 +110,9 @@ class PublishPoints:
         else:
             pass
     
-    def major_callback(self):
-        self.hullobj.createConvexHull()
+    def major_callback1(self,msg):
+        print("HI\n")
+        #self.hullobj.createConvexHull()
         for i in range(1,4):
             self.curr_pose[i].pose.pose.position.x = self.mirror_points[i][0]
             self.curr_pose[i].pose.pose.position.y = self.mirror_points[i][1]
@@ -132,6 +134,8 @@ if __name__ == "__main__":
     obj = GetGlobalPoints()
     obj.setPoints(generators)
     obj.createConvexHull()
+    a = PublishPoints()
+    rospy.spin()
     #obj.plotHull()
     
 """

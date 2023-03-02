@@ -44,8 +44,8 @@ fit_pos_publisher_ = None
 laser_val_ = 10.0
 common_gen_ = 0
 
-D_ = rospy.get_param('/bat_swarm/D')   #dimension
-NP_ = rospy.get_param('/bat_swarm/NP')  #population size 
+D_ = rospy.get_param('/bat_swarm_red/D')   #dimension
+NP_ = rospy.get_param('/bat_swarm_red/NP')  #population size 
 N_Gen_ = 0  #generations
 A_ = 0.00  #loudness
 alpha_ = 0.00 
@@ -251,7 +251,7 @@ def main():
     rospy.init_node("move_bat")
 
     state_msg = ModelState()
-    # namespace = str(rospy.get_namespace()) # /bat_swarm/bat_1
+    # namespace = str(rospy.get_namespace()) # /bat_swarm_red/bat_1
     
     bot_number = rospy.get_param('robot_number')
     bot_model_name = "bat_" + str(bot_number)
@@ -277,8 +277,8 @@ def main():
     # off_publisher_ = rospy.Publisher('off_bot', Bool, queue_size=1)
 
     sub_laser = rospy.Subscriber('min_laser', Float64, min_laser_clbk)
-    sub_best_bat = rospy.Subscriber('/bat_swarm/best_bat_data', Float32List, best_bat_clbk)
-    sub_gen_check = rospy.Subscriber('/bat_swarm/common_gen', Float32List, gen_checker_clbk)
+    sub_best_bat = rospy.Subscriber('/bat_swarm_red/best_bat_data', Float32List, best_bat_clbk)
+    sub_gen_check = rospy.Subscriber('/bat_swarm_red/common_gen', Float32List, gen_checker_clbk)
     sub_odom = rospy.Subscriber('odom', Odometry, odom_clbk)
 
     des_pos_x_ = rospy.get_param('des_pos_x')
@@ -290,11 +290,11 @@ def main():
     position_.x = rospy.get_param('initial_x')
     position_.y = rospy.get_param('initial_y')  # Kind of works
 
-    N_Gen_ = rospy.get_param('/bat_swarm/N_Gen')
-    Qmin_ = rospy.get_param('/bat_swarm/Qmin')
-    Qmax_ = rospy.get_param('/bat_swarm/Qmax')
-    Lower_ = rospy.get_param('/bat_swarm/Lower')
-    Upper_ = rospy.get_param('/bat_swarm/Upper')
+    N_Gen_ = rospy.get_param('/bat_swarm_red/N_Gen')
+    Qmin_ = rospy.get_param('/bat_swarm_red/Qmin')
+    Qmax_ = rospy.get_param('/bat_swarm_red/Qmax')
+    Lower_ = rospy.get_param('/bat_swarm_red/Lower')
+    Upper_ = rospy.get_param('/bat_swarm_red/Upper')
     
     for i in range(D_):
         Lb_[i] = Lower_
@@ -302,9 +302,9 @@ def main():
 
     A_ = rospy.get_param('A')
     r_ = rospy.get_param('r')
-    alpha_ = rospy.get_param('/bat_swarm/alpha')
-    r_init_ = rospy.get_param('r')      # rospy.get_param('/bat_swarm/r_init')
-    gamma_ = rospy.get_param('/bat_swarm/gamma')
+    alpha_ = rospy.get_param('/bat_swarm_red/alpha')
+    r_init_ = rospy.get_param('r')      # rospy.get_param('/bat_swarm_red/r_init')
+    gamma_ = rospy.get_param('/bat_swarm_red/gamma')
 
     bat_index = int(name_space_[-2])-1
     move_bat_msg = Float32List()

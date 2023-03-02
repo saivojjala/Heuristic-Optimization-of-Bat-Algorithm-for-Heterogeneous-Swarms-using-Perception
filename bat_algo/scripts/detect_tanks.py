@@ -15,7 +15,7 @@ class DetectTanks:
         self.images = [Image(),Image(),Image(),Image(),Image(),Image()]
         self.results=[]
         self.curr_pose = [Odometry(),Odometry(),Odometry(),Odometry()]
-        self.results_scam = [(2.613939344014977,-0.11466738713082672),(-0.6053193875271521,-1.4497203004316024),(-0.6136663061111608,-4.681973034541644),(2.3043095369083013,-6.015416310619853)]
+        self.results_scam = [(-6.429886778762916,-8.277464197806911),(-3.574529704243884,0.574529704243884),(-6.6476330191221775,8.578627952835964),(2.3043095369083013,-6.015416310619853)]
         rospy.Subscriber("/bat_1/camera/color/image_raw",Image,self.img_callback1,queue_size = 1)
         rospy.Subscriber("/bat_2/camera/color/image_raw",Image,self.img_callback2,queue_size = 1)
         rospy.Subscriber("/bat_3/camera/color/image_raw",Image,self.img_callback3,queue_size = 1)
