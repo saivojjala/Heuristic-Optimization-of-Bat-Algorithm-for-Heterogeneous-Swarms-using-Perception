@@ -35,7 +35,7 @@ PI_ = math.pi
 yaw_precision_ = 4
 dist_precision_ = 0.25
 
-def rotation():      
+def global_planner():      
     while regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7:   
         rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
         obstacle_avoidance()
@@ -93,7 +93,7 @@ def decision(goal):
             # state_=True
         elif error_distance_>dist_precision_:
             rospy.loginfo("[%s] \033[0;33mExecuting Global Planner\033[0m" %name_space_)
-            rotation()
+            global_planner()
         else:
             rospy.loginfo("[%s]\033[0;31m Unknown Case\033[0m" %name_space_)
 
