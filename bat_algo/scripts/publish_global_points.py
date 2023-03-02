@@ -49,7 +49,8 @@ class GetGlobalPoints:
 class PublishPoints:
     def __init__(self) -> None:
         self.points = []
-        self.mirror_points = []
+        self.curr_pose = [Odometry(),Odometry(),Odometry(),Odometry()]
+        self.mirror_points = [(-6.731236739721421,-0.06402044090225052),(-5.104874290975364,-1.4952762161233175),(-4.700912500625259,-4.484871600869022),(-6.010407068227448,-6.081954633384385)]
         self.hullobj = GetGlobalPoints()
         self.pose_1_pub = rospy.Publisher("/global_pose_1",Odometry,queue_size=1)
         self.pose_2_pub = rospy.Publisher("/global_pose_2",Odometry,queue_size=1)
@@ -92,9 +93,32 @@ class PublishPoints:
             self.points[3] = [x,y]
         else:
             pass
+    def pub_pose(self,odom,index):
+        if(index==1):
+            self.pose_1_pub.publish(odom)
+            print("Published Pose 1")
+        elif(index==2):
+            self.pose_2_pub.publish(odom)
+            print("Published Pose 2")
+        elif(index==3):
+            self.pose_3_pub.publish(odom)
+            print("Published Pose 3")
+        elif(index==4):
+            self.pose_4_pub.publish(odom)
+            print("Published Pose 4")
+        else:
+            pass
     
     def major_callback(self):
         self.hullobj.createConvexHull()
+        for i in range(1,4):
+            self.curr_pose[i].pose.pose.position.x = self.mirror_points[i][0]
+            self.curr_pose[i].pose.pose.position.y = self.mirror_points[i][1]
+            self.curr_pose[i].pose.pose.orientation.x = -0.00018187858008089462
+            self.curr_pose[i].pose.pose.orientation.y = 0.0011442898750893124
+            self.curr_pose[i].pose.pose.orientation.z = -0.9875083624598634
+            self.curr_pose[i].pose.pose.orientation.w = 0.1575623419244042
+            self.pub_pose(self.curr_pose[i],i)
         
 
 
@@ -108,7 +132,7 @@ if __name__ == "__main__":
     obj = GetGlobalPoints()
     obj.setPoints(generators)
     obj.createConvexHull()
-    obj.plotHull()
+    #obj.plotHull()
     
 """
 Point :1 
