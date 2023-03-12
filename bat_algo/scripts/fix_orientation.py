@@ -26,6 +26,9 @@ def rotation():
         vel_.angular.z = 0.5
         pub_.publish(vel_)
     else:
+        vel_.linear.x = 0
+        vel_.angular.z = 0
+        pub_.publish(vel_)
         rospy.loginfo(msg = "[%s]\033[0;32m Orientation Corrected\033[0m" %(name_space_))
         rospy.signal_shutdown("Traversal Complete")
 
