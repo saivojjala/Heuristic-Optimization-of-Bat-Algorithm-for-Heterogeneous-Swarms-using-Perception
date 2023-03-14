@@ -34,6 +34,7 @@
             <param name="A" value="0.69"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_1"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
         </group>
         <group ns="bat_2">
@@ -50,6 +51,7 @@
             <param name="A" value="0.85"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_2"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
         </group>
         <group ns="bat_3">
@@ -64,6 +66,7 @@
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_3"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
         </group>
         <group ns="bat_4">
@@ -80,6 +83,7 @@
             <param name="A" value="0.89"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_4"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
         </group>
         <group ns="bat_5">
@@ -96,6 +100,7 @@
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
             <param name="robot_name" value="bat_5"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
         </group>
     </group>
@@ -127,7 +132,8 @@
             <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.69"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_1"/>
+            <param name="robot_name" value="bat_6"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
         </group>
         <group ns="bat_7">
@@ -143,7 +149,8 @@
             <param name="des_pos_y" value="-1" /> -->
             <param name="A" value="0.85"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_2"/>
+            <param name="robot_name" value="bat_7"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
         </group>
         <group ns="bat_8">
@@ -157,7 +164,8 @@
             <param name="des_ori_w" value="1" />
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_3"/>
+            <param name="robot_name" value="bat_8"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
         </group>
         <group ns="bat_9">
@@ -173,7 +181,8 @@
             <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.89"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_4"/>
+            <param name="robot_name" value="bat_9"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
         </group>
         <group ns="bat_10">
@@ -189,7 +198,8 @@
             <param name="des_pos_y" value="-6" /> -->
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_5"/>
+            <param name="robot_name" value="bat_10"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
         </group>
     </group>
@@ -221,7 +231,8 @@
             <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.69"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_1"/>
+            <param name="robot_name" value="bat_11"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_1" output="screen" />
         </group>
         <group ns="bat_12">
@@ -237,7 +248,8 @@
             <param name="des_pos_y" value="-1" /> -->
             <param name="A" value="0.85"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_2"/>
+            <param name="robot_name" value="bat_12"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_2" output="screen" />
         </group>
         <group ns="bat_13">
@@ -251,7 +263,8 @@
             <param name="des_ori_w" value="1" />
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_3"/>
+            <param name="robot_name" value="bat_13"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_3" output="screen" />
         </group>
         <group ns="bat_14">
@@ -267,7 +280,8 @@
             <param name="des_pos_y" value="-5" /> -->
             <param name="A" value="0.89"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_4"/>
+            <param name="robot_name" value="bat_14"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_4" output="screen" />
         </group>
         <group ns="bat_15">
@@ -283,7 +297,8 @@
             <param name="des_pos_y" value="-6" /> -->
             <param name="A" value="0.78"/>
             <param name="r" value="0.2"/>
-            <param name="robot_name" value="bat_5"/>
+            <param name="robot_name" value="bat_15"/>
+            <param name="fix_orientation" value="False" />
             <node pkg="bat_algo" type="reading_laser.py" name="reading_laser_5" output="screen" />
         </group>
     </group>

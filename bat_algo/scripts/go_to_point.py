@@ -7,7 +7,7 @@ import actionlib
 from tf import transformations
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Twist, Point, Quaternion
+from geometry_msgs.msg import Twist, Point
 from std_srvs.srv import *
 from bat_algo.msg import GoToPointAction, GoToPointResult
 
@@ -17,14 +17,11 @@ act_server_go_to_point_ = None
 rate_ = None
 vel_ = Twist()
 position_ = Point()
-goal_orientation_ = Quaternion()
 goal_position_ = Point()
 goal_position_.x = rospy.get_param('des_pos_x')
 goal_position_.y = rospy.get_param('des_pos_y')
-goal_orientation_.x = rospy.get_param('des_ori_x')
-goal_orientation_.y = rospy.get_param('des_ori_y')
-goal_orientation_.z = rospy.get_param('des_ori_z')
-goal_orientation_.w = rospy.get_param('des_ori_w')
+
+
 # goal_position_.x = -1
 # goal_position_.y = -5
 name_space_ = rospy.get_namespace()
@@ -43,7 +40,7 @@ flag = 0
 final_yaw_ = 0
 
 def global_planner():      
-    while (regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7) and (error_distance_>dist_precision_):   
+    while regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7:   
         rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
         obstacle_avoidance()
 
@@ -89,54 +86,39 @@ def decision(goal):
     rospy.loginfo("[%s] \033[0;36mGot request, executing callback\033[0m" %name_space_)
     # rospy.loginfo(goal)
     
-    if flag==0:
-        while True:
-            if error_distance_<dist_precision_:
-                vel_.linear.x=0
-                vel_.angular.z=0
-                pub_.publish(vel_)
-                rospy.loginfo(msg = "[%s]\033[0;32m Reached Assigned Point\033[0m" %(name_space_))
-                break
-                # rospy.signal_shutdown("Traversal Complete")
-                # state_=True
-            elif error_distance_>dist_precision_:
-                rospy.loginfo("[%s] \033[0;33mExecuting Global Planner\033[0m" %name_space_)
-                global_planner()
-            else:
-                rospy.loginfo("[%s]\033[0;31m Unknown Case\033[0m" %name_space_)
-
-            # final_yaw = 3.01
-            # error = (final_yaw - yaw_)*180/PI_
-            # if (abs(error) > yaw_precision_) and state_:
-            #     vel_.linear.x=0
-            #     vel_.angular.z = error*0.01
-            #     pub_.publish(vel_)
-            # else:
-            #     correct_yaw_ = True
-
-            # if state_ and correct_yaw_:
-            #     break
-
-            rate_.sleep()
-
-        result_.x, result_.y = position_.x, position_.y
-        result_.distance = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
-        act_server_go_to_point_.set_succeeded(result_,  "[%s] Reached Point Successfully" % name_space_)
-
     while True:
-        if(abs(error_yaw_)>yaw_precision_):
-            vel_.linear.x = 0
-            vel_.angular.z = 0.5
+        if error_distance_<dist_precision_:
+            vel_.linear.x=0
+            vel_.angular.z=0
             pub_.publish(vel_)
-            rospy.loginfo("[%s]\033[0;35m Yaw Updating\033[0m" %name_space_)
-        else:
-            vel_.linear.x = 0
-            vel_.angular.z = 0
-            pub_.publish(vel_)
+            rospy.loginfo(msg = "[%s]\033[0;32m Reached Assigned Point\033[0m" %(name_space_))
             break
-    
-    rospy.loginfo("[%s]\033[0;32m Yaw Corrected\033[0m" %name_space_)
+            # rospy.signal_shutdown("Traversal Complete")
+            # state_=True
+        elif error_distance_>dist_precision_:
+            rospy.loginfo("[%s] \033[0;33mExecuting Global Planner\033[0m" %name_space_)
+            global_planner()
+        else:
+            rospy.loginfo("[%s]\033[0;31m Unknown Case\033[0m" %name_space_)
 
+        # final_yaw = 3.01
+        # error = (final_yaw - yaw_)*180/PI_
+        # if (abs(error) > yaw_precision_) and state_:
+        #     vel_.linear.x=0
+        #     vel_.angular.z = error*0.01
+        #     pub_.publish(vel_)
+        # else:
+        #     correct_yaw_ = True
+
+        # if state_ and correct_yaw_:
+        #     break
+
+        rate_.sleep()
+
+    result_.x, result_.y = position_.x, position_.y
+    result_.distance = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
+    act_server_go_to_point_.set_succeeded(result_,  "[%s] Reached Point Successfully" % name_space_)
+    rospy.set_param('fix_orientation', True)
     return
 
 def laser_clbk(msg):
@@ -145,12 +127,7 @@ def laser_clbk(msg):
     # laser_val_ = min(min(msg.ranges[0:5]), 1.5)
     error_distance_ = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
     desired_yaw_ = math.atan2(goal_position_.y - position_.y, goal_position_.x - position_.x)
-    if flag==0:
-        error_yaw_ = (desired_yaw_ - yaw_)*180/PI_
-    else:
-        euler = transformations.euler_from_quaternion(goal_orientation_)
-        final_yaw_ = euler[2]
-        error_yaw_ = (final_yaw_ - yaw_)*180/PI_
+    error_yaw_ = (desired_yaw_ - yaw_)*180/PI_
     # decision()
 
 def odom_clbk(msg):
