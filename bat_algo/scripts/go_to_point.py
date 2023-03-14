@@ -43,7 +43,7 @@ flag = 0
 final_yaw_ = 0
 
 def global_planner():      
-    while regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7:   
+    while (regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7) and (error_distance_>dist_precision_):   
         rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
         obstacle_avoidance()
 
@@ -122,17 +122,21 @@ def decision(goal):
         result_.x, result_.y = position_.x, position_.y
         result_.distance = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
         act_server_go_to_point_.set_succeeded(result_,  "[%s] Reached Point Successfully" % name_space_)
-    else:
-        while True:
-            if(abs(error_yaw_)>yaw_precision_):
-                vel_.linear.x = 0
-                vel_.angular.z = 0.5
-                pub_.publish(vel_)
-            else:
-                vel_.linear.x = 0
-                vel_.angular.z = 0
-                pub_.publish(vel_)
+
+    while True:
+        if(abs(error_yaw_)>yaw_precision_):
+            vel_.linear.x = 0
+            vel_.angular.z = 0.5
+            pub_.publish(vel_)
+            rospy.loginfo("[%s]\033[0;35m Yaw Updating\033[0m" %name_space_)
+        else:
+            vel_.linear.x = 0
+            vel_.angular.z = 0
+            pub_.publish(vel_)
+            break
     
+    rospy.loginfo("[%s]\033[0;32m Yaw Corrected\033[0m" %name_space_)
+
     return
 
 def laser_clbk(msg):
