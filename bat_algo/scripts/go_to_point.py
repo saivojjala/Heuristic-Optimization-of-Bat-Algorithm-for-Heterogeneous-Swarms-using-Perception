@@ -41,12 +41,12 @@ final_yaw_ = 0
 
 def global_planner():      
     while regions['front']<=0.7 or regions['right']<=0.7 or regions['left']<=0.7:   
-        rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
+        #rospy.loginfo("[%s]\033[0;31m Currently Stuck, Executing Obstacle Avoidance\033[0m" %name_space_)
         obstacle_avoidance()
 
     if(abs(error_yaw_)>yaw_precision_):
-        vel_.linear.x = error_distance_*0.12
-        vel_.angular.z = error_yaw_*0.01
+        vel_.linear.x = min(error_distance_*0.12,1)
+        vel_.angular.z = min(error_yaw_*0.01,1)
         pub_.publish(vel_)
     else:
         vel_.linear.x=0
@@ -61,7 +61,7 @@ def go_straight():
 
 def obstacle_avoidance():  
     global regions
-    print(regions)
+    #print(regions)
     if regions['front']<=0.7 and regions['right']<=0.7 and regions['left']>0.7:
         vel_.linear.x = regions['right']*0.5
         vel_.angular.z = 1.0
@@ -83,7 +83,7 @@ def decision(goal):
     global act_server_go_to_point_ #state_, correct_yaw_
     
     rate_ = rospy.Rate(100)
-    rospy.loginfo("[%s] \033[0;36mGot request, executing callback\033[0m" %name_space_)
+    #rospy.loginfo("[%s] \033[0;36mGot request, executing callback\033[0m" %name_space_)
     # rospy.loginfo(goal)
     
     while True:
@@ -91,12 +91,12 @@ def decision(goal):
             vel_.linear.x=0
             vel_.angular.z=0
             pub_.publish(vel_)
-            rospy.loginfo(msg = "[%s]\033[0;32m Reached Assigned Point\033[0m" %(name_space_))
+            #rospy.loginfo(msg = "[%s]\033[0;32m Reached Assigned Point\033[0m" %(name_space_))
             break
             # rospy.signal_shutdown("Traversal Complete")
             # state_=True
         elif error_distance_>dist_precision_:
-            rospy.loginfo("[%s] \033[0;33mExecuting Global Planner\033[0m" %name_space_)
+            #rospy.loginfo("[%s] \033[0;33mExecuting Global Planner\033[0m" %name_space_)
             global_planner()
         else:
             rospy.loginfo("[%s]\033[0;31m Unknown Case\033[0m" %name_space_)
@@ -118,7 +118,7 @@ def decision(goal):
     result_.x, result_.y = position_.x, position_.y
     result_.distance = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
     act_server_go_to_point_.set_succeeded(result_,  "[%s] Reached Point Successfully" % name_space_)
-    rospy.set_param('fix_orientation', True)
+    rospy.set_param('fix_orientation', 1)
     return
 
 def laser_clbk(msg):

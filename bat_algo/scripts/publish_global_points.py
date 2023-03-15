@@ -51,7 +51,7 @@ class PublishPoints:
     def __init__(self) -> None:
         self.points = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]
         self.curr_pose = [Odometry(),Odometry(),Odometry(),Odometry()]
-        self.mirror_points = [(-6.731236739721421,-8.06402044090225052),(-5.104874290975364,-0.4952762161233175),(-6.700912500625259,8.484871600869022),(-6.010407068227448,-6.081954633384385)]
+        self.mirror_points = [(-6.731236739721421,-7.06402044090225052),(-3.104874290975364,0),(-6.700912500625259,6.484871600869022),(-6.010407068227448,-6.081954633384385)]
         self.hullobj = GetGlobalPoints()
         self.pose_1_pub = rospy.Publisher("/global_pose_1",Odometry,queue_size=1)
         self.pose_2_pub = rospy.Publisher("/global_pose_2",Odometry,queue_size=1)
@@ -116,10 +116,10 @@ class PublishPoints:
         for i in range(1,4):
             self.curr_pose[i].pose.pose.position.x = self.mirror_points[i][0]
             self.curr_pose[i].pose.pose.position.y = self.mirror_points[i][1]
-            self.curr_pose[i].pose.pose.orientation.x = -0.00018187858008089462
-            self.curr_pose[i].pose.pose.orientation.y = 0.0011442898750893124
-            self.curr_pose[i].pose.pose.orientation.z = -0.9875083624598634
-            self.curr_pose[i].pose.pose.orientation.w = 0.1575623419244042
+            self.curr_pose[i].pose.pose.orientation.x = 0.000263639524898799
+            self.curr_pose[i].pose.pose.orientation.y = -1.5475251678644136e-06
+            self.curr_pose[i].pose.pose.orientation.z = 0.0059478689542924006
+            self.curr_pose[i].pose.pose.orientation.w = -0.9999822765162935
             self.pub_pose(self.curr_pose[i],i)
         
 

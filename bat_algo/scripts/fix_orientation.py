@@ -11,12 +11,12 @@ rate_ = None
 pub_ = None
 vel_ = Twist()
 name_space_ = rospy.get_namespace()
-goal_orientation_ = Quaternion()
-goal_orientation_.x = rospy.get_param('des_ori_x')
-goal_orientation_.y = rospy.get_param('des_ori_y')
-goal_orientation_.z = rospy.get_param('des_ori_z')
-goal_orientation_.w = rospy.get_param('des_ori_w')
-fix_yaw_ = rospy.get_param('fix_orientation')
+goal_orientation_ = [rospy.get_param('des_ori_x'),rospy.get_param('des_ori_y'),rospy.get_param('des_ori_z'),rospy.get_param('des_ori_w')]
+#goal_orientation_ = Quaternion()
+#goal_orientation_.x = rospy.get_param('des_ori_x')
+#goal_orientation_.y = rospy.get_param('des_ori_y')
+#goal_orientation_.z = rospy.get_param('des_ori_z')
+#goal_orientation_.w = rospy.get_param('des_ori_w')
 error_yaw_ = 0
 yaw_precision_ = 4
 
@@ -33,7 +33,7 @@ def rotation():
         rospy.signal_shutdown("Traversal Complete")
 
 def odom_clbk(msg):
-    global error_yaw_, PI_
+    global error_yaw_, PI_ , name_space_
     quaternion = (msg.pose.pose.orientation.x, 
                 msg.pose.pose.orientation.y,
                 msg.pose.pose.orientation.z,
@@ -43,7 +43,11 @@ def odom_clbk(msg):
     euler = transformations.euler_from_quaternion(goal_orientation_)
     final_yaw_ = euler[2]
     error_yaw_ = (final_yaw_ - yaw_)*180/PI_
-    if(fix_yaw_==True):
+    #rospy.loginfo(f"{name_space_} \033[0;32fix_yaw = {fix_yaw_} !!!\033[0m" )
+    fix_yaw_ = int(rospy.get_param('fix_orientation'))
+    #print(f"{name_space_} fix_yaw = {fix_yaw_} condition = {fix_yaw_==int(1)}" )
+    if(fix_yaw_==int(1)):
+        print("[%s] \033[0;32m Converged. Executing Orientation Correction !!!\033[0m" %(name_space_))
         rotation()
         
 def main():
