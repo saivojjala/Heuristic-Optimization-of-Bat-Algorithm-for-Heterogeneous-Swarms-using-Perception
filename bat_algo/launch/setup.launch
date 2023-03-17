@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<launch>
+<node pkg="bat_algo" name="detect_tanks" type="detect_tanks.py" output="screen"/>
+<node pkg="bat_algo" name="publish_goal_points" type="publish_global_points.py" output="screen"/>
+<include file="$(find bat_algo)/launch/bats.launch" />
+<node pkg="bat_algo" name="set_params" type="set_params.py" output="screen"/>
+<include file="$(find bat_algo)/launch/go_to_point.launch" />
+</launch>
