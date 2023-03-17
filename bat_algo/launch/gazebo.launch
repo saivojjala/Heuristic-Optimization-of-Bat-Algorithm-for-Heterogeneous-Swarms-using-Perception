@@ -16,6 +16,7 @@
   </include>
 
   <!-- <include file="$(find bat_algo)/launch/controller.launch" /> -->
+  <include file="$(find bat_algo)/launch/custom_bot_rviz.launch" />
   <!-- Bat Swarm-->
   <group ns="/bat_swarm_red">
     <group ns="bat_1">
