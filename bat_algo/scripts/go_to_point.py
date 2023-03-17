@@ -20,7 +20,8 @@ position_ = Point()
 goal_position_ = Point()
 goal_position_.x = rospy.get_param('des_pos_x')
 goal_position_.y = rospy.get_param('des_pos_y')
-
+goal_position_.x = float(goal_position_.x)
+goal_position_.y = float(goal_position_.y)
 
 # goal_position_.x = -1
 # goal_position_.y = -5
@@ -125,6 +126,7 @@ def laser_clbk(msg):
     global laser_val_, error_distance_, error_yaw_, regions
     regions = { 'right':  min(min(msg.ranges[0:5]), 1), 'front':  min(min(msg.ranges[6:10]), 1), 'left':   min(min(msg.ranges[11:15]), 1) }
     # laser_val_ = min(min(msg.ranges[0:5]), 1.5)
+
     error_distance_ = math.sqrt(math.pow(goal_position_.x - position_.x, 2) + math.pow(goal_position_.y - position_.y, 2))
     desired_yaw_ = math.atan2(goal_position_.y - position_.y, goal_position_.x - position_.x)
     error_yaw_ = (desired_yaw_ - yaw_)*180/PI_
