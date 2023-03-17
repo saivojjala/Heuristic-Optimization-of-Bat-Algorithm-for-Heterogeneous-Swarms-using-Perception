@@ -41,7 +41,7 @@ class GetGlobalPoints:
         self.hull = ConvexHull(self.detected_points)
 
     def plotHull(self):
-        print(self.hull.equations)
+        #print(self.hull.equations)
         plt.plot(self.detected_points[:,0], self.detected_points[:,1], 'o')
         for simplex in self.hull.simplices:
             plt.plot(self.detected_points[simplex, 0], self.detected_points[simplex, 1], 'k-')
@@ -97,21 +97,21 @@ class PublishPoints:
     def pub_pose(self,odom,index):
         if(index==1):
             self.pose_1_pub.publish(odom)
-            print("Published Pose 1")
+            #print("Published Pose 1")
         elif(index==2):
             self.pose_2_pub.publish(odom)
-            print("Published Pose 2")
+            #print("Published Pose 2")
         elif(index==3):
             self.pose_3_pub.publish(odom)
-            print("Published Pose 3")
+            #print("Published Pose 3")
         elif(index==4):
             self.pose_4_pub.publish(odom)
-            print("Published Pose 4")
+            #print("Published Pose 4")
         else:
             pass
     
     def major_callback1(self,msg):
-        print("HI\n")
+        #print("HI\n")
         #self.hullobj.createConvexHull()
         for i in range(1,4):
             self.curr_pose[i].pose.pose.position.x = self.mirror_points[i][0]

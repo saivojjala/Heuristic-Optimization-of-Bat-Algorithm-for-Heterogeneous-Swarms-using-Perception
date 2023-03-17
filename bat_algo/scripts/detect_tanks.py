@@ -44,16 +44,16 @@ class DetectTanks:
     def pub_pose(self,odom,index):
         if(index==1):
             self.tank_pose_1_pub.publish(odom)
-            print("Published Pose 1")
+            #print("Published Pose 1")
         elif(index==2):
             self.tank_pose_2_pub.publish(odom)
-            print("Published Pose 2")
+            #print("Published Pose 2")
         elif(index==3):
             self.tank_pose_3_pub.publish(odom)
-            print("Published Pose 3")
+            #print("Published Pose 3")
         elif(index==4):
             self.tank_pose_4_pub.publish(odom)
-            print("Published Pose 4")
+            #print("Published Pose 4")
         else:
             pass
     
