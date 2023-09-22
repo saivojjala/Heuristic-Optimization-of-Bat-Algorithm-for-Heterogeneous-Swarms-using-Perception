@@ -1,5 +1,3 @@
-# Heuristic Optimization of Bat Algorithm using Perception
-
 This is the official code base for the publication [Heuristic Optimization of Bat Algorithm using Perception](https://oresta.org/article-view/?id=572) published in Operational Research in Engineering Sciences:
 Theory and Applications Journal
 
