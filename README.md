@@ -3,6 +3,9 @@
 This is the official code base for the publication [Heuristic Optimization of Bat Algorithm using Perception](https://oresta.org/article-view/?id=572) published in Operational Research in Engineering Sciences:
 Theory and Applications Journal
 
+## Graphical Abstract
+![Graphical Abstract_Swarm Paper](https://github.com/saivojjala/Heuristic-Optimization-of-Bat-Algorithm-using-Perception/assets/75236655/895c9c99-5088-4ad6-91e9-355bbd0bf2ed)
+
 To view the Simulation clone the repository into a ROS workspace using the following commands:
 ```
 mkdir -p ~/catkin_ws/src
