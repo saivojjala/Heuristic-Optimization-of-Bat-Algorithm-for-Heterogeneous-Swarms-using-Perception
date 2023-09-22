@@ -34,4 +34,4 @@ roslaunch bat_algo move_bat.launch
 Realsense Plug In Source Repository: https://github.com/issaiass/realsense2_description
 
 
-![ROS Package Index](https://img.shields.io/ros/v/:noetic/:Heuristic Optimization of Bat Algorithm using Perception)
+![ROS Package Index](https://img.shields.io/ros/v/:noetic/:reponame)
