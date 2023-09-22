@@ -6,6 +6,7 @@ Theory and Applications Journal
 To view the Simulation clone the repository into a ROS workspace using the following commands:
 ```
 mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
 git clone https://github.com/saivojjala/Heuristic-Optimization-of-Bat-Algorithm-using-Perception.git
 ```
 
