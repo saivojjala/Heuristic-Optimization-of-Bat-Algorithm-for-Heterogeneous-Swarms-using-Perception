@@ -1,8 +1,15 @@
-# Swarm-Project
+# Heuristic Optimization of Bat Algorithm using Perception
 
-Pull the Repository in ~/catkin_ws/src.
+This is the official code base for the publication [Heuristic Optimization of Bat Algorithm using Perception](https://oresta.org/article-view/?id=572) published in Operational Research in Engineering Sciences:
+Theory and Applications Journal
 
-To Launch the Simulation for Meta-Heuristic Bat Algorithm with Heuristic Optimization
+To view the Simulation clone the repository into a ROS workspace using the following commands:
+```
+mkdir -p ~/catkin_ws/src
+git clone 
+```
+
+To Launch the Simulation for Meta-Heuristic Bat Algorithm with Heuristic Optimization:
 ```
 roslaunch bat_algo gazebo.launch
 rosrun bat_algo detect_tanks.py
@@ -13,7 +20,7 @@ roslaunch bat_algo go_to_point.launch
 roslaunch bat_algo move_bat.launch
 ```
 
-To Launch the Simulation for Pure Meta-Heuristic Bat Algorithm
+To Launch the Simulation for Pure Meta-Heuristic Bat Algorithm:
 ```
 roslaunch bat_algo gazebo.launch
 roslaunch bat_algo bats.launch
