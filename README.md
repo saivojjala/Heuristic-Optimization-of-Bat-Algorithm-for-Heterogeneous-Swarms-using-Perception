@@ -2,7 +2,7 @@ This is the official code base for the publication [Heuristic Optimization of Ba
 Theory and Applications Journal
 
 ## Graphical Abstract
-![Graphical Abstract_Swarm Paper](https://github.com/saivojjala/Heuristic-Optimization-of-Bat-Algorithm-using-Perception/assets/75236655/895c9c99-5088-4ad6-91e9-355bbd0bf2ed)
+![Graphical Abstract_Swarm Paper](https://github.com/LavaHawk0123/LavaHawk0123/assets/75236655/555dad2a-9965-4d01-a811-243faedac81f)
 
 To view the Simulation clone the repository into a ROS workspace using the following commands:
 ```
