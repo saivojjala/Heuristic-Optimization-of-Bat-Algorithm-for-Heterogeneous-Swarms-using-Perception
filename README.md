@@ -34,5 +34,32 @@ roslaunch bat_algo move_bat.launch
 
 Realsense Plug In Source Repository: https://github.com/issaiass/realsense2_description
 
-
+**Software and Frameworks**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![ROS Package Index](https://img.shields.io/ros/v/noetic/std_msgs)
+![TensorFlow](https://img.shields.io/badge/TensorFlow%20-%23FF6F00.svg?&style=plastic&logo=TensorFlow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras%20-%23D00000.svg?&style=plastic&logo=Keras&logoColor=white) 
+![ROS](https://img.shields.io/badge/-ROS-22314E?style=plastic&logo=ROS)
+![Linux](https://img.shields.io/badge/-Linux-000000?style=flat&logo=linux&logoColor=FCC624)
+![Ubuntu](https://img.shields.io/badge/-Ubuntu-E95420?style=plastic&logo=Ubuntu&logoColor=white)
+
+**Languages**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Python](https://img.shields.io/badge/-Python-black?style=plastic&logo=Python)
+![C++](https://img.shields.io/badge/-C%2B%2B-00599C?style=plastic&logo=C%2B%2B)
+![CMake](https://img.shields.io/badge/-CMake-064F8C?style=plastic&logo=CMake)
+![C](https://img.shields.io/badge/-C-A8B9CC?style=plastic&logo=C)
+![LaTeX](https://img.shields.io/badge/-LaTeX-008080?style=plastic&logo=LaTex)
+
+**VCS**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Git](https://img.shields.io/badge/-Git-black?style=plastic&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=plastic&logo=github)
+![GitLab](https://img.shields.io/badge/-GitLab-FCA121?style=plastic&logo=GitLab)
+
+**Editors and IDEs**
+
+&nbsp;
+![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=plastic&logo=visual-studio-code)
+
