@@ -1,4 +1,4 @@
-This is the official code base for the publication [Heuristic Optimization of Bat Algorithm using Perception](https://oresta.org/article-view/?id=572) published in Operational Research in Engineering Sciences:
+This is the official code base for the publication [Heuristic Optimization of Bat Algorithm for Heterogeneous Swarms using Perception](https://oresta.org/article-view/?id=572) published in Operational Research in Engineering Sciences:
 Theory and Applications Journal
 
 ## Graphical Abstract
@@ -32,8 +32,9 @@ roslaunch bat_algo go_to_point.launch
 roslaunch bat_algo move_bat.launch
 ```
 
-Realsense Plug In Source Repository: https://github.com/issaiass/realsense2_description
+Realsense Plug-In Source Repository: https://github.com/issaiass/realsense2_description
 
+## Tools & Technologies Used:
 **Software and Frameworks**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![ROS Package Index](https://img.shields.io/ros/v/noetic/std_msgs)
@@ -52,14 +53,12 @@ Realsense Plug In Source Repository: https://github.com/issaiass/realsense2_desc
 ![LaTeX](https://img.shields.io/badge/-LaTeX-008080?style=plastic&logo=LaTex)
 
 **VCS**
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Git](https://img.shields.io/badge/-Git-black?style=plastic&logo=git)
 ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=plastic&logo=github)
 ![GitLab](https://img.shields.io/badge/-GitLab-FCA121?style=plastic&logo=GitLab)
 
 **Editors and IDEs**
-
 &nbsp;
 ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=plastic&logo=visual-studio-code)
 
